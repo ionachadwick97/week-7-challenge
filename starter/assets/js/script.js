@@ -4,24 +4,34 @@
 // 
 
 const today = moment();
-$("#currentDay").text(today.format("MMMM Do YYYY, h:mm a"));
+$("#currentDay").text(today.format("MMMM Do YYYY, HH:mm"));
 
 // 2. Colour code each block based on the current time
 //      Create variables to target each time block
+const nine = $(".time9");
+const ten = $(".time10");
+const eleven = $(".time11");
+const twelve = $(".time12");
+const thirteen = $(".time13");
+const fourteen = $(".time14");
+const fifteen = $(".time15");
+const sixteen = $(".time16");
+const seventeen = $(".time17");
 //      In the html add the data-hour which represent which hour each element is
 //      Create variable for moment().format(H) (0 - 23) e.g. thisHour
-//      timeblocks = $('.timeblock')
-//      timeblocks.each(function(this) {
-//          var hour = this.attr('data-hour');
-//          if (hour < thisHour) {
-//              this.css('background-color', pastColour)
-//          } else if (hour == thisHour) {
-//              this.css('background-color', presentColour)
-//          } else {
-//              this.css('background-color', futureColour)
-//          }
-//      })
-//
+let now = moment().format("H");
+timeblocks = $('.timeblock');
+     timeblocks.each(function(this) {
+         let hour = this.attr('data-hour');
+         if (hour < now) {
+             this.css('background-color', pastColor)
+         } else if (hour == now) {
+             this.css('background-color', presentColor)
+         } else {
+             this.css('background-color', futureColor)
+         }
+     })
+
 
 // 3. Save input to local storage
 //      create variable (an array) called inputs that will store all of the input data
@@ -61,4 +71,3 @@ $("#currentDay").text(today.format("MMMM Do YYYY, h:mm a"));
 //          })
 //      if theres no data in local storage, do nothing
 
-// Extra, add hover effect on the save button
