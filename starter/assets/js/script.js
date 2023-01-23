@@ -8,27 +8,20 @@ $("#currentDay").text(today.format("MMMM Do YYYY, HH:mm"));
 
 // 2. Colour code each block based on the current time
 //      Create variables to target each time block
-const nine = $(".time9");
-const ten = $(".time10");
-const eleven = $(".time11");
-const twelve = $(".time12");
-const thirteen = $(".time13");
-const fourteen = $(".time14");
-const fifteen = $(".time15");
-const sixteen = $(".time16");
-const seventeen = $(".time17");
 //      In the html add the data-hour which represent which hour each element is
 //      Create variable for moment().format(H) (0 - 23) e.g. thisHour
-let now = moment().format("H");
-timeblocks = $('.timeblock');
-     timeblocks.each(function(this) {
-         let hour = this.attr('data-hour');
+let now = parseInt(moment().format("H"));
+console.log(now)
+let timeblocks = $('.timeblock');
+     timeblocks.each(function(index) {
+         let hour = parseInt($(this).attr('data-hour'));
+         console.log(hour)
          if (hour < now) {
-             this.css('background-color', pastColor)
+             $(this).removeClass("presentColor futureColor").addClass("pastColor")
          } else if (hour == now) {
-             this.css('background-color', presentColor)
+             $(this).removeClass("pastColor futureColor").addClass("presentColor")
          } else {
-             this.css('background-color', futureColor)
+             $(this).removeClass("presentColor pastColor").addClass("futureColor")
          }
      })
 
