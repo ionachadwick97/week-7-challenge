@@ -11,11 +11,9 @@ $("#currentDay").text(today.format("MMMM Do YYYY, HH:mm"));
 //      In the html add the data-hour which represent which hour each element is
 //      Create variable for moment().format(H) (0 - 23) e.g. thisHour
 let now = parseInt(moment().format("H"));
-console.log(now)
 let timeblocks = $('.timeblock');
      timeblocks.each(function(index) {
          let hour = parseInt($(this).attr('data-hour'));
-         console.log(hour)
          if (hour < now) {
              $(this).removeClass("presentColor futureColor").addClass("pastColor")
          } else if (hour == now) {
@@ -49,6 +47,14 @@ let timeblocks = $('.timeblock');
 //        input: 'Coffee',
 //      },...];
 // 
+
+let input = [];
+$(".saveBtn").click(function() {
+    event.preventDefault;
+    let tempinput = $("#input").val();
+    input.push(tempinput);
+})
+console.log(input)
 
 // 4. Load input from local storage when page load/refresh if there's any data in local storage
 //      var localStorageInput = get data from local storage
