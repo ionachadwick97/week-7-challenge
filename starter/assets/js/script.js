@@ -48,13 +48,15 @@ let timeblocks = $('.timeblock');
 //      },...];
 // 
 
-let input = [];
-$(".saveBtn").click(function() {
-    event.preventDefault;
-    let tempinput = $("#input").val();
-    input.push(tempinput);
+
+$(".saveBtn").on("click", function() {
+    let tempInput = $(this).siblings(".input").val();
+console.log(tempInput);
+let tempTime = $(this).parent().attr("data-hour");
+    console.log(tempTime);
+    localStorage.setItem(tempTime, tempInput);
 })
-console.log(input)
+
 
 // 4. Load input from local storage when page load/refresh if there's any data in local storage
 //      var localStorageInput = get data from local storage
@@ -70,3 +72,8 @@ console.log(input)
 //          })
 //      if theres no data in local storage, do nothing
 
+console.log("localStorage for 9 = ", localStorage.getItem("9"));
+
+$(".input").each(function(input) {
+    $(this).val(localStorage.getItem($(this).parent().attr("data-hour")));
+})
