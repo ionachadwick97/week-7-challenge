@@ -1,4 +1,4 @@
-# week-7-challenge
+# workday-scheduler
 
 ## Description
 
