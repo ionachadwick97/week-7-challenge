@@ -4,7 +4,7 @@
 
 An app to plan an office day schedule. Input is saved to local storage and is reinstated upon reload of the page.
 
-Deployed app: https://ionachadwick97.github.io/week-7-challenge/
+Deployed app: https://ionachadwick97.github.io/workday-scheduler/
 
 Screenshots:
 
